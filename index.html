@@ -3,165 +3,340 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Singapore Engineering Consultancy · FAQ</title>
-  <meta name="description" content="Frequently asked questions on Singapore building engineering consultancy: M&E, ACMV, fire protection, water services, and authority submissions.">
+  <title>Meridian Engineering Consultancy</title>
+  <meta name="description" content="Meridian Engineering Consultancy — Professional M&E, ACMV, fire protection, and water services design and consultancy in Singapore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --accent: #0f766e;
-      --accent-light: #14b8a6;
-      --text: #1e293b;
-      --muted: #64748b;
+      --navy: #0c2340;
+      --navy-light: #1a3a5c;
+      --accent: #c8a951;
+      --accent-light: #ddc06a;
+      --white: #ffffff;
+      --light: #f5f6f8;
+      --text: #2d3748;
+      --muted: #718096;
       --border: #e2e8f0;
-      --tag-bg: #f0fdfa;
-      --tag-border: #99f6e4;
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-    header { background: var(--card); border-bottom: 1px solid var(--border); padding: 40px 24px; text-align: center; }
-    header h1 { font-size: 2rem; color: var(--accent); margin-bottom: 8px; }
-    header p { color: var(--muted); font-size: 1rem; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 800px; margin: 24px auto; padding: 0 24px; }
-    .tab { padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); cursor: pointer; font-size: 0.9rem; color: var(--muted); transition: all 0.2s; }
-    .tab:hover, .tab.active { border-color: var(--accent); color: var(--accent); background: var(--tag-bg); }
-    .search-wrap { max-width: 600px; margin: 20px auto; padding: 0 24px; }
-    .search { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; outline: none; transition: border 0.2s; }
-    .search:focus { border-color: var(--accent); }
-    .faq-list { max-width: 800px; margin: 30px auto; padding: 0 24px; }
-    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; transition: border 0.2s; }
-    .faq-item:hover { border-color: var(--accent-light); }
-    .faq-q { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
-    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--accent); transition: transform 0.2s; }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { padding: 0 20px 16px; color: var(--muted); font-size: 0.95rem; display: none; }
-    .faq-item.open .faq-a { display: block; }
-    .faq-tag { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border: 1px solid var(--tag-border); border-radius: 4px; background: var(--tag-bg); color: var(--accent); margin-right: 8px; }
-    footer { text-align: center; padding: 40px 24px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 40px; }
-    @media (max-width: 600px) { header h1 { font-size: 1.5rem; } .tabs { gap: 6px; } .tab { padding: 6px 12px; font-size: 0.8rem; } }
+    body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; }
+    
+    /* Navbar */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(12,35,64,0.97); backdrop-filter: blur(10px); z-index: 100; padding: 0 40px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+    .logo { color: var(--white); font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 60px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(200,169,81,0.08) 0%, transparent 70%); }
+    .hero h1 { font-size: 3.2rem; color: var(--white); font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { color: rgba(255,255,255,0.7); font-size: 1.15rem; max-width: 600px; margin: 0 auto 36px; line-height: 1.8; }
+    .hero-btn { display: inline-block; padding: 14px 36px; background: var(--accent); color: var(--navy); font-weight: 600; text-decoration: none; border-radius: 6px; font-size: 0.95rem; transition: all 0.2s; }
+    .hero-btn:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,81,0.3); }
+    
+    /* Sections */
+    section { padding: 80px 24px; }
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-light { background: var(--light); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
+    .section-title p { color: var(--muted); font-size: 1rem; }
+    .section-dark .section-title p { color: rgba(255,255,255,0.6); }
+    .section-title .line { width: 60px; height: 3px; background: var(--accent); margin: 16px auto 0; border-radius: 2px; }
+    
+    /* Services Grid */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 32px 28px; transition: all 0.3s; }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .service-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--navy); }
+    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    
+    /* Stats */
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+    .stat h3 { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+    .stat p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 4px; }
+    
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .about-text h3 { font-size: 1.4rem; font-weight: 600; color: var(--navy); margin-bottom: 16px; }
+    .about-text p { color: var(--muted); margin-bottom: 14px; font-size: 0.95rem; }
+    .about-visual { background: linear-gradient(135deg, var(--navy), var(--navy-light)); border-radius: 12px; padding: 40px; color: white; min-height: 300px; display: flex; flex-direction: column; justify-content: center; }
+    .about-visual h4 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); }
+    .about-visual ul { list-style: none; }
+    .about-visual li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .about-visual li::before { content: '✓ '; color: var(--accent); font-weight: 700; }
+    
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .project-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: all 0.3s; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .project-img { height: 180px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .project-info { padding: 20px; }
+    .project-info h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .project-info p { color: var(--muted); font-size: 0.85rem; }
+    .project-tag { display: inline-block; font-size: 0.7rem; padding: 2px 8px; background: var(--light); border-radius: 4px; color: var(--accent); margin-top: 8px; font-weight: 600; }
+    
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .contact-info h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; }
+    .contact-item { display: flex; gap: 14px; margin-bottom: 20px; }
+    .contact-item .icon { width: 44px; height: 44px; background: var(--light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact-item .detail h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+    .contact-item .detail p { color: var(--muted); font-size: 0.85rem; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; margin-bottom: 14px; font-family: inherit; outline: none; transition: border 0.2s; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+    .contact-form textarea { height: 120px; resize: vertical; }
+    .contact-form button { padding: 12px 32px; background: var(--navy); color: white; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .contact-form button:hover { background: var(--navy-light); }
+    
+    /* Footer */
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 30px 24px; font-size: 0.85rem; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .hero h1 { font-size: 2rem; }
+      .services-grid, .projects-grid, .stats-bar { grid-template-columns: 1fr 1fr; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .services-grid, .projects-grid, .stats-bar { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🏗️ Singapore Engineering Consultancy · FAQ</h1>
-    <p>M&E · ACMV · Fire Protection · Water Services · Authority Submissions</p>
-  </header>
 
-  <div class="search-wrap">
-    <input class="search" type="text" placeholder="Search questions..." id="searchBox" oninput="filterFAQ()">
+<nav>
+  <div class="nav-inner">
+    <div class="logo">MERIDIAN <span>ENGINEERING</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-btn" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">☰</button>
   </div>
+</nav>
 
-  <div class="tabs" id="tabs">
-    <span class="tab active" onclick="filterCat('all')">All</span>
-    <span class="tab" onclick="filterCat('acmv')">ACMV</span>
-    <span class="tab" onclick="filterCat('fire')">Fire</span>
-    <span class="tab" onclick="filterCat('water')">Water</span>
-    <span class="tab" onclick="filterCat('authority')">Authority</span>
-    <span class="tab" onclick="filterCat('contract')">Contract / VO</span>
-    <span class="tab" onclick="filterCat('general')">General</span>
+<!-- Hero -->
+<section class="hero">
+  <div>
+    <h1>Building Services<br><span>Engineering Excellence</span></h1>
+    <p>Delivering innovative and sustainable M&E engineering solutions for commercial, institutional, and infrastructure projects across Singapore.</p>
+    <a href="#contact" class="hero-btn">Get in Touch</a>
   </div>
+</section>
 
-  <div class="faq-list" id="faqList"></div>
-
-  <footer>
-    <p>Content is for reference only and does not constitute professional advice. Consult a licensed Professional Engineer (PE) for specific matters.</p>
-    <p style="margin-top:8px;">Powered by GitHub Pages · 2026</p>
-  </footer>
-
-<script>
-const faqs = [
-  // ACMV
-  { cat: "acmv", q: "What is ACMV and why is it critical in Singapore?", a: "ACMV stands for Air-Conditioning and Mechanical Ventilation. In Singapore's tropical climate, ACMV is essential for almost all commercial and residential buildings. Design must comply with SS 553 (Code of Practice for ACMV) and BCA Green Mark requirements for energy efficiency." },
-  { cat: "acmv", q: "What are the key parameters in ACMV system design?", a: "Key parameters include: (1) Cooling load calculation — envelope, occupants, lighting, equipment; (2) Fresh air rates — per SS 553 and ASHRAE 62.1; (3) Ductwork/pipe pressure drops — affects fan and pump sizing; (4) Noise control — critical for residential and hospital projects; (5) Energy efficiency — BCA Green Mark sets minimum COP/EER thresholds." },
-  { cat: "acmv", q: "What methods are used for cooling load calculation?", a: "Common methods: (1) Steady-state heat transfer — quick estimation for simple projects; (2) Hourly dynamic simulation — using eQUEST, EnergyPlus, or IES-VE for 8760-hour annual simulation; (3) CLTD/SCL/CLF — simplified dynamic method recommended by ASHRAE Handbook. Singapore projects typically require dynamic simulation for Green Mark compliance." },
-  { cat: "acmv", q: "What is a Fume Hood exhaust system and what are the design considerations?", a: "A Fume Hood is a local exhaust device used in laboratories to remove hazardous fumes. Design considerations: (1) Face velocity typically 0.5 m/s; (2) Make-up air system must balance exhaust to maintain slight lab negative pressure; (3) Ductwork requires corrosion-resistant materials; (4) High-level discharge must meet NEA requirements; (5) Must coordinate with emergency showers and gas detection systems." },
-  { cat: "acmv", q: "How to choose between VRF and Chiller+AHU systems?", a: "Depends on project scale:<br><strong>VRF (Variable Refrigerant Flow):</strong> Suitable for small-medium projects (<5,000 RT), flexible installation, good part-load efficiency, but limited by refrigerant piping length.<br><strong>Chiller+AHU:</strong> Suitable for large projects (malls, hospitals), centralised management, easier maintenance, higher initial cost but controllable lifecycle cost. Singapore large-scale projects predominantly use Chiller systems." },
-  
-  // Fire Protection
-  { cat: "fire", q: "What regulations govern fire protection design in Singapore?", a: "Key regulations: (1) Fire Safety Act; (2) Fire Code — published by SCDF; (3) SS 575 (Automatic Sprinkler Systems); (4) SS 552 (Fire Pump Systems). All designs require SCDF approval, and a Temporary Fire Safety Certificate (TFSC) is needed upon completion." },
-  { cat: "fire", q: "Which building types require automatic sprinkler systems?", a: "Per Fire Code: (1) All buildings >24m in height; (2) Non-residential buildings >5,000 m² total floor area; (3) Basements >200 m²; (4) Residential: single floor >400 m² or ≥4 storeys (non-landed). Refer to the latest SCDF Fire Code for specific requirements." },
-  { cat: "fire", q: "How are hazard classifications determined for sprinkler design?", a: "Per SS 575 and Fire Code: (1) Light Hazard — offices, residences; (2) Ordinary Hazard Group 1-2 — shops, car parks; (3) Ordinary Hazard Group 3-4 — factories, warehouses; (4) Extra Hazard — flammable liquid storage, spray booths. Classification affects sprinkler spacing, design density, and hydraulic calculations." },
-  { cat: "fire", q: "What documents are needed for SCDF fire design submission?", a: "Key documents: (1) Fire drawings signed by a Qualified Person (QP); (2) Sprinkler/fire pump hydraulic calculations; (3) Equipment selection and datasheets; (4) Fire compartmentation plans; (5) Evacuation plans; (6) Fire Safety Certificate application forms. Submission is via the CORENET online system." },
-  { cat: "fire", q: "What are the requirements for a Fire Command Centre?", a: "Fire Command Centre requirements: (1) Located at ground floor near main entrance; (2) Minimum area as per Fire Code; (3) Equipped with fire panel, communication system, CRT display; (4) Independent air-conditioning and emergency lighting; (5) Wall fire rating ≥1 hour; (6) Direct external access from outside." },
-  
-  // Water
-  { cat: "water", q: "Who manages Singapore's water supply and what standards apply?", a: "Water supply is managed by PUB (Public Utilities Board). Design must comply with: (1) PUB Water Supply Standard; (2) CP 48 (Code of Practice for Water Services); (3) BCA requirements. All connections to PUB mains require PUB approval." },
-  { cat: "water", q: "How is building water pressure determined?", a: "Key considerations: (1) PUB connection pressure is typically 2-4 bar; (2) High-rise buildings require zoned supply — usually ≤6-8 storeys per zone; (3) Roof tank with gravity feed is most common; (4) Booster pumps for low-pressure zones; (5) Constant pressure pump systems are common in hotels/hospitals. Minimum service pressure at the most unfavourable point is 1 bar." },
-  { cat: "water", q: "What standards govern rainwater drainage design?", a: "Primary reference is PUB Code of Practice on Surface Water Drainage. Design considerations: (1) Average Recurrence Interval (ARI) — 10 years for general drainage, 50 years for critical areas; (2) Catchment area and runoff coefficient; (3) Manning's formula for drain/pipe sizing; (4) Flood protection — basements need sumps and pumps; (5) ABC (Active, Beautiful, Clean) waters design encourages ecological drainage." },
-  { cat: "water", q: "What is the role of vent pipes in sanitary drainage?", a: "Vent pipes serve to: (1) Balance air pressure to prevent trap siphonage; (2) Facilitate smooth drainage flow; (3) Discharge odour gases to atmosphere above roof level. CP 48 requires: at least one vent stack per branch; additional vents for long horizontal runs; loop vents for extended horizontal drainage. Vent pipe diameter must not be less than the corresponding waste pipe." },
-  { cat: "water", q: "How does NEWater affect building water supply?", a: "NEWater and desalination are two of Singapore's Four National Taps. Impact on buildings: (1) PUB supply quality is uniform — no special treatment needed in-building; (2) Industrial projects can apply for direct NEWater supply; (3) Cooling tower make-up water is encouraged to use NEWater to conserve potable water; (4) Buildings must reserve space for PUB meters and inspection chambers." },
-  
-  // Authority
-  { cat: "authority", q: "Which government agencies are involved in Singapore building projects?", a: "Key agencies: (1) <strong>BCA</strong> (Building and Construction Authority) — building plan approval, structural safety, Green Mark; (2) <strong>SCDF</strong> (Singapore Civil Defence Force) — fire safety approval; (3) <strong>PUB</strong> (Public Utilities Board) — water supply and drainage connections; (4) <strong>LTA</strong> (Land Transport Authority) — road and traffic related; (5) <strong>NEA</strong> (National Environment Agency) — emissions, noise; (6) <strong>JTC</strong> (Jurong Town Corporation) — industrial park projects; (7) <strong>URA</strong> (Urban Redevelopment Authority) — planning approval." },
-  { cat: "authority", q: "What is CORENET and how is it used?", a: "CORENET (Construction and Real Estate NETwork) is Singapore's electronic submission platform for the building industry. Uses: (1) Submit building plans to BCA for approval; (2) Submit fire design to SCDF for approval; (3) Submit compliance documents to various agencies. Requires Qualified Person (QP) account login, supports online review and approval tracking." },
-  { cat: "authority", q: "What is a Qualified Person (QP)?", a: "A QP is a legally designated qualified professional in Singapore, holding a Professional Engineer (PE) or Registered Architect (RA) licence. Responsibilities: (1) Take professional responsibility for design and sign submission documents; (2) Ensure design complies with regulations; (3) Issue compliance certificates upon completion. Non-QP staff may prepare documents, but final review and signing must be by a QP." },
-  { cat: "authority", q: "What M&E requirements does BCA Green Mark impose?", a: "Green Mark M&E requirements: (1) Air-conditioning system efficiency — minimum COP/EER; (2) Lighting Power Density (LPD) limits; (3) Fresh air control and heat recovery; (4) Energy monitoring and sub-metering; (5) Renewable energy credits; (6) Refrigerant GWP limits. Requirements escalate with Green Mark levels (Certified/Gold/Platinum/Zero Energy)." },
-  { cat: "authority", q: "What are TOP and CSC?", a: "<strong>TOP (Temporary Occupation Permit):</strong> Issued by BCA upon building completion, allowing temporary occupation. Requires final inspection confirming structural and basic safety compliance.<br><strong>CSC (Certificate of Statutory Completion):</strong> Final compliance certificate issued by BCA when all statutory requirements (fire, M&E, structural, etc.) are met. A building may be occupied under TOP before CSC is obtained." },
-  
-  // Contract / VO
-  { cat: "contract", q: "What is a Variation Order (VO) and when is it required?", a: "A VO is a modification to the original contract scope, which may increase or decrease work. Common triggers: (1) Owner changes design requirements; (2) Site conditions differ from design; (3) Authority requirements demand modifications; (4) Unforeseen technical issues. VOs require QS valuation, supervisory review, and owner approval before execution. Processed per SIA or REDAS contract conditions." },
-  { cat: "contract", q: "What is the difference between SOR and Star Rate?", a: "<strong>SOR (Schedule of Rates):</strong> Pre-agreed unit rates in the contract used for VO pricing. Calculated as actual quantities × unit rates.<br><strong>Star Rate:</strong> Published reference rates by government bodies (e.g. BCA), commonly used in government projects or as fallback when SOR is unavailable. SOR is more flexible; Star Rate is more standardised. VO disputes often centre on SOR reasonableness." },
-  { cat: "contract", q: "What are RRVO and FVO?", a: "<strong>RRVO (Request for Variation Order):</strong> A request submitted by the contractor to the supervisory team/owner, seeking valuation and approval of additional work.<br><strong>FVO (Final Variation Order):</strong> Near project completion, all unresolved VOs are settled and confirmed, forming the basis for final account. RRVO is the starting point; FVO is the closing confirmation." },
-  { cat: "contract", q: "What is the basic claims process?", a: "Claims process: (1) <strong>Event occurs</strong> — document with photos and site diary; (2) <strong>Notice</strong> — written notice to supervisor within contractual time limits; (3) <strong>Prepare documentation</strong> — impact analysis, cost breakdown, programme impact assessment; (4) <strong>Submit formal claim</strong> with supporting documents; (5) <strong>Negotiate</strong> with owner/QS; (6) <strong>Adjudication</strong> — disputes may go to DAB (Dispute Adjudication Board) or arbitration. Timely notice and thorough records are critical." },
-  { cat: "contract", q: "What is a productivity loss claim and how is it substantiated?", a: "A productivity loss claim covers additional costs due to reduced work efficiency caused by non-contractor factors. Substantiation: (1) Establish baseline productivity (bid assumptions); (2) Record actual productivity (daily output); (3) Analyse gap causes (design changes, site disruption, repeated rework); (4) Quantify loss (labour and plant overruns); (5) Exclude contractor-attributable factors. The Measured Mile method is commonly used for comparative analysis." },
-  
-  // General
-  { cat: "general", q: "What is the role of a Professional Engineer (PE) in Singapore?", a: "A PE is registered with the Professional Engineers Board (PEB). Responsibilities: (1) Sign and certify engineering designs; (2) Bear legal liability for design safety; (3) Stamp documents submitted via CORENET; (4) Guide and supervise engineering teams. PEs are licensed by discipline (civil, mechanical, electrical, etc.) and must complete CPD (Continuing Professional Development) credits every 2 years to maintain registration." },
-  { cat: "general", q: "What are common drawing abbreviations used in Singapore engineering?", a: "Common terms:<br><strong>ACMV:</strong> AHU (Air Handling Unit), FCU (Fan Coil Unit), VAV (Variable Air Volume), Chiller<br><strong>Fire:</strong> Sprinkler, Hose Reel, Dry Riser, Wet Riser, FHR (Fire Hose Reel)<br><strong>Water:</strong> DW (Domestic Water), CW (Cold Water), HW (Hot Water), Sanitary, Stormwater<br><strong>Electrical:</strong> DB (Distribution Board), SM (Switch Meter), UPS<br><strong>General:</strong> DWG (Drawing), DET (Detail), SHT (Sheet), RFI (Request for Information)" },
-  { cat: "general", q: "What are the key MEP coordination milestones?", a: "Key milestones: (1) <strong>Concept Design</strong> — system approach and spatial reservations; (2) <strong>Schematic Design</strong> — main routing and equipment locations; (3) <strong>Detailed Design</strong> — clash detection and clearance verification; (4) <strong>Construction</strong> — embedded items coordinated with civil works schedule; (5) <strong>Testing & Commissioning</strong> — individual system testing and integrated testing; (6) <strong>Defects Liability</strong> — rectification during warranty period. BIM coordination is critical at Stage 3." },
-  { cat: "general", q: "What does commissioning involve?", a: "Commissioning verifies all systems operate as designed. Includes: (1) Individual equipment testing (pumps, fans, etc.); (2) System balancing (air and water balancing); (3) Control logic testing (BMS integration); (4) Performance testing (cooling capacity, energy efficiency); (5) Fire integration testing; (6) Documentation delivery (O&M manuals, as-built drawings). Commissioning typically progresses through Pre-commissioning, Commissioning, and Integrated Testing phases." },
-  { cat: "general", q: "What are Singapore's site safety requirements?", a: "Governed by the Workplace Safety and Health Act (WSHA) and WSH Regulations. Requirements: (1) All workers must complete SEC (Safety Orientation Course); (2) Hazardous work requires Permit-to-Work; (3) Fall protection measures for work at height; (4) Regular safety inspections and Toolbox Meetings; (5) Accident reporting and investigation obligations; (6) MOM (Ministry of Manpower) may conduct surprise inspections. Safety violations can result in stop-work orders and fines." },
-  { cat: "general", q: "What is BIM's role in Singapore construction?", a: "BCA has mandated BIM submission since 2015 for projects exceeding 5,000 m². Applications: (1) 3D visual design review; (2) Clash detection; (3) Construction schedule simulation (4D); (4) Cost estimation (5D); (5) Facility management data delivery (6D). Common software: Revit (design), Navisworks (coordination), Solibri (review). BIM coordination meetings are routine during the design phase." },
-];
-
-let currentCat = 'all';
-
-function renderFAQ(items) {
-  const list = document.getElementById('faqList');
-  list.innerHTML = '';
-  if (items.length === 0) {
-    list.innerHTML = '<p style="text-align:center;color:#94a3b8;padding:40px;">No matching questions found</p>';
-    return;
-  }
-  items.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'faq-item';
-    div.dataset.cat = item.cat;
-    div.innerHTML = `
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-        <span><span class="faq-tag">${catLabel(item.cat)}</span>${item.q}</span>
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Comprehensive building services engineering from concept to completion</p>
+      <div class="line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">❄️</div>
+        <h3>ACMV Design</h3>
+        <p>Air-conditioning and mechanical ventilation systems designed for energy efficiency, thermal comfort, and compliance with SS 553 and BCA Green Mark.</p>
       </div>
-      <div class="faq-a">${item.a}</div>
-    `;
-    list.appendChild(div);
-  });
-}
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Fire Protection</h3>
+        <p>Complete fire safety engineering including sprinkler systems, wet/dry risers, hose reels, and SCDF submissions in accordance with the Fire Code.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <h3>Water Services</h3>
+        <p>Sanitary plumbing, potable water supply, rainwater drainage, and PUB submissions for commercial and residential developments.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Electrical Engineering</h3>
+        <p>Power distribution, lighting design, lightning protection, and electrical load analysis for buildings and infrastructure.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Authority Submissions</h3>
+        <p>End-to-end coordination with BCA, SCDF, PUB, LTA, and other regulatory agencies for plan approvals and compliance certification.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Project Coordination</h3>
+        <p>Multi-disciplinary coordination, BIM management, site supervision, and commissioning management for seamless project delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-function catLabel(cat) {
-  const map = { acmv: 'ACMV', fire: 'Fire', water: 'Water', authority: 'Authority', contract: 'Contract', general: 'General' };
-  return map[cat] || cat;
-}
+<!-- Stats -->
+<section class="section-dark">
+  <div class="container">
+    <div class="stats-bar">
+      <div class="stat"><h3>15+</h3><p>Years Experience</p></div>
+      <div class="stat"><h3>200+</h3><p>Projects Completed</p></div>
+      <div class="stat"><h3>50+</h3><p>Repeat Clients</p></div>
+      <div class="stat"><h3>100%</h3><p>Authority Compliance</p></div>
+    </div>
+  </div>
+</section>
 
-function filterCat(cat) {
-  currentCat = cat;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-  applyFilter();
-}
+<!-- About -->
+<section id="about" class="section-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>Trusted engineering consultancy since 2010</p>
+      <div class="line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h3>Your Partner in Building Services Engineering</h3>
+        <p>Meridian Engineering Consultancy is a Singapore-based firm specialising in mechanical and electrical (M&E) engineering design and consultancy. We serve architects, developers, contractors, and government agencies with professional, code-compliant, and cost-effective engineering solutions.</p>
+        <p>Our team of experienced engineers and designers brings deep expertise in ACMV, fire protection, water services, and electrical systems. We are committed to sustainable design practices and BCA Green Mark compliance across all our projects.</p>
+      </div>
+      <div class="about-visual">
+        <h4>Why Choose Us</h4>
+        <ul>
+          <li>Registered Professional Engineers (PE)</li>
+          <li>BCA Green Mark certified designs</li>
+          <li>BIM-ready workflow (Revit, Navisworks)</li>
+          <li>Full authority submission capability</li>
+          <li>Experienced in complex mixed-use projects</li>
+          <li>Strong track record with repeat clients</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-function filterFAQ() { applyFilter(); }
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <div class="section-title">
+      <h2>Selected Projects</h2>
+      <p>A snapshot of our recent work across sectors</p>
+      <div class="line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img">🏢</div>
+        <div class="project-info">
+          <h3>Commercial Tower — CBD</h3>
+          <p>Full M&E design for a 35-storey Grade A office tower. ACMV, fire, and water services.</p>
+          <span class="project-tag">Commercial</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🏥</div>
+        <div class="project-info">
+          <h3>Medical Centre — Novena</h3>
+          <p>Specialist ACMV design with surgical suite pressurisation and HEPA filtration.</p>
+          <span class="project-tag">Healthcare</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🚇</div>
+        <div class="project-info">
+          <h3>MRT Station — Thomson Line</h3>
+          <p>Tunnel ventilation, platform air-conditioning, and smoke extraction systems.</p>
+          <span class="project-tag">Infrastructure</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🏫</div>
+        <div class="project-info">
+          <h3>International School — East</h3>
+          <p>Energy-efficient ACMV with VRF systems and Green Mark Gold certification.</p>
+          <span class="project-tag">Institutional</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🏨</div>
+        <div class="project-info">
+          <h3>Boutique Hotel — Chinatown</h3>
+          <p>Compact M&E design for heritage conservation building with spatial constraints.</p>
+          <span class="project-tag">Hospitality</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🏭</div>
+        <div class="project-info">
+          <h3>Industrial Facility — Tuas</h3>
+          <p>Process cooling, fume extraction, and hazardous area electrical classification.</p>
+          <span class="project-tag">Industrial</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-function applyFilter() {
-  const keyword = document.getElementById('searchBox').value.toLowerCase();
-  const items = faqs.filter(f => {
-    const catMatch = currentCat === 'all' || f.cat === currentCat;
-    const textMatch = !keyword || f.q.toLowerCase().includes(keyword) || f.a.toLowerCase().includes(keyword);
-    return catMatch && textMatch;
-  });
-  renderFAQ(items);
-}
+<!-- Contact -->
+<section id="contact" class="section-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Let's discuss your next project</p>
+      <div class="line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div class="detail">
+            <h4>Office</h4>
+            <p>10 Anson Road, #XX-XX<br>Singapore 079903</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <div class="detail">
+            <h4>Phone</h4>
+            <p>+65 6XXX XXXX</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">✉️</div>
+          <div class="detail">
+            <h4>Email</h4>
+            <p>enquiries@meridian-eng.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">🕐</div>
+          <div class="detail">
+            <h4>Office Hours</h4>
+            <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <input type="text" placeholder="Company">
+        <textarea placeholder="Tell us about your project..."></textarea>
+        <button type="button">Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-renderFAQ(faqs);
-</script>
+<footer>
+  <p>&copy; 2026 Meridian Engineering Consultancy Pte Ltd. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
